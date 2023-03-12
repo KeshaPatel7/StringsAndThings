@@ -68,13 +68,34 @@ public class StringsAndThings {
      */
     public Boolean gIsHappy(String input){
 
-        boolean happy = false;
+//        boolean happy = false;
+//
+//        for (int i = 0; i < input.length(); i++) {
+//            if (input.charAt(i) == 'g' && input.charAt(i + 1) == 'g') {
+//                happy = true;
+//            }
+//        }
+//        return happy;
+//    }
 
-        for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) == 'g' && input.charAt(i + 1) == 'g') {
-                happy = true;
+        int length = input.length();
+        boolean happy = true;
+
+        for (int i = 0; i < length; i++) {
+            if (input.charAt(i) == 'g') {
+                if (i > 0 && input.charAt(i - 1) == 'g') {
+                    happy = true;
+                } else if (i < length - 1 && input.charAt(i + 1) == 'g') {
+                    happy = true;
+
+                    //   } else if (input.charAt(i)) == 'g' && input.charAt(i +1) != {
+
+                } else {
+                    happy = false;
+                }
             }
         }
+
         return happy;
     }
 
@@ -89,7 +110,7 @@ public class StringsAndThings {
     public Integer countTriple(String input){
         int tripleCount = 0;
 
-        for (int i = 0; i < input.length() - 2; i++) {
+        for (int i = 0; i < input.length() - 2; i++) {  // the last two letters won't be tripple(same letter)
             char currentChar = input.charAt(i);
             char nextChar = input.charAt(i + 1);
             char nextNextChar = input.charAt(i + 2);
